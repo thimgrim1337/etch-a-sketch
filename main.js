@@ -1,7 +1,13 @@
 const canvas = document.querySelector('.canvas');
 
-for (let i = 0; i < 256; i++) {
-  const div = document.createElement('div');
-  div.classList.add('pixel');
-  canvas.appendChild(div);
-}
+const makeGrid = (rows = 16, cols = 16) => {
+  canvas.style.setProperty('--grid-rows', rows);
+  canvas.style.setProperty('--grid-cols', cols);
+
+  for (let i = 0; i < rows * cols; i++) {
+    let pixel = document.createElement('div');
+    canvas.appendChild(pixel).className = 'pixel';
+  }
+};
+
+makeGrid();
