@@ -1,35 +1,35 @@
+import Grid from './Grid.js';
+
 const canvas = document.querySelector('.canvas');
+
 let isClicked = false;
 
-const makeGrid = (rows = 16, cols = 16) => {
-  canvas.style.setProperty('--grid-rows', rows);
-  canvas.style.setProperty('--grid-cols', cols);
+Grid.makeGrid(canvas, 16);
 
-  for (let i = 0; i < rows * cols; i++) {
-    let pixel = document.createElement('div');
-    canvas.appendChild(pixel).className = 'pixel';
-  }
-};
+// const logText = () => {
+//   console.log('Działa');
+// };
 
-makeGrid();
+// const draw = (e) => {
+//   e.target.style.backgroundColor = 'black';
+// };
 
-const logText = () => {
-  console.log('Działa');
-};
+// const changeSize = (e) => {
+//   size = e.target.value;
+//   canvas.innerHTML = '';
+//   makeGrid(size);
+// };
 
-const draw = (e) => {
-  e.target.style.backgroundColor = 'black';
-};
+// const toggleClick = () => (isClicked = !isClicked);
 
-const toggleClick = () => (isClicked = !isClicked);
+// const pixels = document.querySelectorAll('.pixel');
 
-const pixels = document.querySelectorAll('.pixel');
+// pixels.forEach((pixel) =>
+//   pixel.addEventListener('mouseout', (e) => {
+//     if (isClicked) draw(e);
+//   })
+// );
 
-pixels.forEach((pixel) =>
-  pixel.addEventListener('mouseout', (e) => {
-    if (isClicked) draw(e);
-  })
-);
-
-canvas.addEventListener('mousedown', toggleClick);
-canvas.addEventListener('mouseup', toggleClick);
+// range.addEventListener('change', changeSize);
+// canvas.addEventListener('mousedown', toggleClick);
+// canvas.addEventListener('mouseup', toggleClick);
