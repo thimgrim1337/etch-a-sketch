@@ -1,10 +1,18 @@
-import Grid from './Grid.js';
+import App from './App.js';
 
-const canvas = document.querySelector('.canvas');
+const app = new App();
 
-let isClicked = false;
+// let isClicked = false;
 
-Grid.makeGrid(canvas, 16);
+/* 
+Klasa draw odpowiadająca za rysowanie 
+    -
+Klasa controls pobierająca ustawienia użytkownika
+    - Kolor changeColor
+    - rozmiar changeSize
+    - gumka changeMode -> draw or erase
+    - wyczyść - clearGrid
+*/
 
 // const logText = () => {
 //   console.log('Działa');
@@ -14,21 +22,15 @@ Grid.makeGrid(canvas, 16);
 //   e.target.style.backgroundColor = 'black';
 // };
 
-// const changeSize = (e) => {
-//   size = e.target.value;
-//   canvas.innerHTML = '';
-//   makeGrid(size);
-// };
-
 // const toggleClick = () => (isClicked = !isClicked);
 
 // const pixels = document.querySelectorAll('.pixel');
 
-// pixels.forEach((pixel) =>
-//   pixel.addEventListener('mouseout', (e) => {
-//     if (isClicked) draw(e);
-//   })
-// );
+/*    document.querySelectorAll('.pixel').forEach((pixel) =>
+      pixel.addEventListener('mouseout', (e) => {
+        if (isClicked) draw(e);
+      })
+    ); */
 
 // range.addEventListener('change', changeSize);
 // canvas.addEventListener('mousedown', toggleClick);

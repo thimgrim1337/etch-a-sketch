@@ -9,5 +9,8 @@ class Grid {
       canvas.appendChild(pixel).className = 'pixel';
     }
   };
+  static clearGrid = (canvas) => {
+    canvas.innerHTML = '';
+  };
 }
 export default Grid;
