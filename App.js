@@ -5,11 +5,15 @@ import Draw from './Draw.js';
 class App {
   constructor() {
     this.canvas = document.querySelector('.canvas');
+    document
+      .querySelector('[data-option="clear"')
+      .addEventListener('click', () => Grid.clearGrid(this.canvas));
+
     this.setting = new Setting();
 
     document.querySelector('#gridSize').addEventListener('change', (e) => {
       this.setting.setSize(e.target.value);
-      Grid.clearGrid(this.canvas);
+      Grid.removeGrid(this.canvas);
       this.render();
     });
 
