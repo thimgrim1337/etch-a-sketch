@@ -11,109 +11,32 @@
       href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
       rel="stylesheet"
     />
-    <style>
-      * {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-      }
-
-      :root {
-        --grid-cols: 1;
-        --grid-rows: 1;
-      }
-
-      body {
-        width: 960px;
-        min-height: 100vh;
-        margin: 0 auto;
-        padding: 20px 0;
-        font-family: 'Press Start 2P', cursive;
-        display: flex;
-        flex-direction: column;
-      }
-
-      body h1 {
-        text-align: center;
-      }
-
-      .wrap {
-        display: flex;
-        justify-content: center;
-        margin-top: 40px;
-        flex-grow: 1;
-      }
-
-      .canvas {
-        display: grid;
-        flex-grow: 1;
-        grid-template-rows: repeat(var(--grid-rows), 1fr);
-        grid-template-columns: repeat(var(--grid-cols), 1fr);
-      }
-
-      .controls {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 25%;
-        gap: 10px;
-      }
-
-      .controls input,
-      .controls button,
-      .controls label {
-        width: 150px;
-        height: 30px;
-        text-align: center;
-      }
-
-      .controls button {
-        font-family: 'Press Start 2P', cursive;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-      }
-
-      #colorPicker {
-        padding: 0 50px;
-      }
-
-      .controls label {
-        height: 20px;
-        line-height: 20px;
-      }
-
-      .pixel {
-        border: 1px solid #ddd;
-        user-select: none;
-      }
-
-      footer {
-        text-align: center;
-        padding: 20px 0;
-        font-size: 0.7rem;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Eatch-a-Sketch</h1>
     <div class="wrap">
-      <div class="controls">
-        <input type="color" name="colorPicker" id="colorPicker" />
-        <button data-option="erase">Erase</button>
-        <button data-option="clear">Clear</button>
-        <label for="gridSize"></label
-        ><input
-          type="range"
-          name="gridSize"
-          id="gridSize"
-          min="1"
-          max="64"
-          value="16"
-        />
+      <h1>Eatch-a-Sketch</h1>
+      <div class="eatch">
+        <div class="controls">
+          <input type="color" name="colorPicker" id="colorPicker" />
+          <button data-option="erase">Erase</button>
+          <button data-option="clear">Clear</button>
+          <label for="gridSize"></label
+          ><input
+            type="range"
+            name="gridSize"
+            id="gridSize"
+            min="2"
+            max="64"
+            value="16"
+            step="2"
+          />
+        </div>
+        <div class="canvas"></div>
       </div>
-      <div class="canvas"></div>
+      <footer>&copy 2022 Dawid Dygner</footer>
     </div>
-    <footer>&copy 2022 Dawid Dygner</footer>
+
     <script type="module" src="main.js"></script>
   </body>
 </html>

@@ -1,41 +1,45 @@
 class Draw {
-  constructor(canvas) {
-    this.canvas = canvas;
-    this.isErase = false;
-    this.isClicked = false;
-    this.color = '#000';
-
-    const pixels = document.querySelectorAll('.pixel').forEach((pixel) =>
-      pixel.addEventListener('mouseout', (e) => {
-        if (this.isClicked) this.draw(e);
-      })
-    );
+  constructor() {
+    let _pixels = 0;
+    let _isClicked = false;
+    let _isErase = false;
+    let _color = '#000000';
+    const _colorPicker = document.querySelector('#colorPicker');
+    const _eraseBtn = document.querySelector('[data-option="erase"]');
+    this.getPixels = () => _pixels;
+    this.setPixels = (pixels) => {
+      _pixels = pixels;
+      _color = '#000000';
+      _colorPicker.value = _color;
+      _pixels.forEach((pixel) =>
+        pixel.addEventListener('mouseout', (e) => {
+          if (_isClicked) this.draw(e);
+        })
+      );
+    };
 
     this.draw = (e) => {
-      if (this.isClicked) e.target.style.backgroundColor = this.color;
-      if (this.isClicked && this.isErase) e.target.style.backgroundColor = '';
+      if (_isClicked) e.target.style.backgroundColor = _color;
+      if (_isClicked && _isErase) e.target.style.backgroundColor = '';
     };
 
     this.toggleClick = () => {
-      this.isClicked = !this.isClicked;
+      _isClicked = !_isClicked;
     };
+
     this.toggleErase = () => {
-      this.isErase = !this.isErase;
+      _isErase = !_isErase;
+      _eraseBtn.classList.toggle('active');
     };
 
     this.changeColor = (e) => {
-      this.color = e.target.value;
+      _color = e.target.value;
     };
 
-    this.canvas.addEventListener('mousedown', this.toggleClick);
-    this.canvas.addEventListener('mouseup', this.toggleClick);
-    document
-      .querySelector('[data-option="erase"]')
-      .addEventListener('click', this.toggleErase);
-
-    document
-      .querySelector('#colorPicker')
-      .addEventListener('change', this.changeColor);
+    document.addEventListener('mousedown', this.toggleClick);
+    document.addEventListener('mouseup', this.toggleClick);
+    _colorPicker.addEventListener('change', this.changeColor);
+    _eraseBtn.addEventListener('click', this.toggleErase);
   }
 }
 export default Draw;

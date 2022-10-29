@@ -1,0 +1,93 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --grid-cols: 1;
+  --grid-rows: 1;
+}
+
+body * {
+  font-family: 'Press Start 2P', cursive;
+}
+
+body {
+  height: 100vh;
+  font-size: 10px;
+}
+
+.wrap {
+  max-width: 80%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrap h1,
+footer {
+  text-align: center;
+  padding: 15px 0;
+}
+
+.wrap h1 {
+  font-size: 1.5rem;
+  margin-bottom: 50px;
+}
+
+footer {
+  font-size: 0.7rem;
+  flex-grow: 0;
+  flex-shrink: 1;
+}
+
+.eatch {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.eatch .controls {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.controls button {
+  padding: 0.5rem 0;
+}
+
+button[data-option='erase'].active {
+  color: red;
+}
+
+#colorPicker {
+  width: 100%;
+  padding: 0 1.5rem;
+}
+
+label[for='gridSize'] {
+  text-align: center;
+  padding: 10px 0;
+}
+.canvas {
+  flex-grow: 1;
+  display: grid;
+  max-width: 500px;
+  max-height: 500px;
+  grid-template-rows: repeat(var(--grid-rows), 1fr);
+  grid-template-columns: repeat(var(--grid-cols), 1fr);
+}
+
+.controls button {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.pixel {
+  border: 1px solid #ddd;
+  user-select: none;
+}

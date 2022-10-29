@@ -9,22 +9,25 @@ class App {
 
     this.setting = new Setting();
 
-    document.querySelector('#gridSize').addEventListener('change', (e) => {
-      this.setting.setSize(e.target.value);
-      this.render(this.canvas, this.setting.getSize());
-    });
+    this.render(this.canvas, this.setting.getSize());
+
+    this.draw = new Draw();
+    this.draw.setPixels(Grid.getGrid(this.canvas));
 
     document
       .querySelector('[data-option="clear"]')
       .addEventListener('click', () => Grid.clearGrid(this.canvas));
 
-    this.render(this.canvas, this.setting.getSize());
+    document.querySelector('#gridSize').addEventListener('change', (e) => {
+      this.setting.setSize(e.target.value);
+      this.render(this.canvas, this.setting.getSize());
+      this.draw.setPixels(Grid.getGrid(this.canvas));
+    });
   }
 
   render(canvas, size) {
     Grid.removeGrid(canvas);
     Grid.makeGrid(canvas, size);
-    this.draw = new Draw(this.canvas);
     this.gridLabel.textContent = `${this.setting.getSize()} x ${this.setting.getSize()} `;
   }
 }

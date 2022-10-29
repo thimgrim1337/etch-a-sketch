@@ -10,6 +10,11 @@ class Grid {
     }
   };
 
+  static getGrid = (canvas) => {
+    let pixels = [...canvas.children];
+    return pixels;
+  };
+
   static removeGrid = (canvas) => {
     canvas.innerHTML = '';
   };
