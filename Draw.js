@@ -1,24 +1,31 @@
 class Draw {
-  constructor(canvas) {
+  constructor(canvas, isErase) {
     this.canvas = canvas;
-    let _isClicked = false;
+    this.isErase = isErase;
+    this.isClicked = false;
 
     const pixels = document.querySelectorAll('.pixel').forEach((pixel) =>
       pixel.addEventListener('mouseout', (e) => {
-        if (_isClicked) this.draw(e);
+        if (this.isClicked) this.draw(e);
       })
     );
 
     this.draw = (e) => {
-      e.target.style.backgroundColor = 'black';
+      if (this.isClicked) e.target.style.backgroundColor = 'black';
+      if (this.isClicked && this.isErase) e.target.style.backgroundColor = '';
     };
 
     this.toggleClick = () => {
-      _isClicked = !_isClicked;
+      this.isClicked = !this.isClicked;
     };
 
     this.canvas.addEventListener('mousedown', this.toggleClick);
     this.canvas.addEventListener('mouseup', this.toggleClick);
+    document
+      .querySelector('[data-option="erase"]')
+      .addEventListener('click', () => {
+        this.isErase = !this.isErase;
+      });
   }
 }
 export default Draw;

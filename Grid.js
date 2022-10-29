@@ -9,12 +9,12 @@ class Grid {
       canvas.appendChild(pixel).className = 'pixel';
     }
   };
+
   static removeGrid = (canvas) => {
     canvas.innerHTML = '';
   };
 
-  static clearGrid = (canvas) => {
-    // TODO: Clear styles from pixels
+  static clearGrid = () => {
     document
       .querySelectorAll('.pixel')
       .forEach((pixel) => (pixel.style.backgroundColor = ''));

@@ -1,8 +1,10 @@
+import Grid from './Grid.js';
 class Setting {
-  constructor() {
-    let _size = 16;
-    this.setSize = (size) => (_size = size);
-    this.getSize = () => _size;
+  constructor(gridSize = 16, color = '#000') {
+    this.gridSize = gridSize;
+    this.color = color;
+    this.setSize = (gridSize) => (this.gridSize = gridSize);
+    this.getSize = () => this.gridSize;
   }
 }
 export default Setting;
