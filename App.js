@@ -5,6 +5,8 @@ import Draw from './Draw.js';
 class App {
   constructor() {
     this.canvas = document.querySelector('.canvas');
+    this.gridLabel = document.querySelector('[for="gridSize"]');
+
     this.setting = new Setting();
 
     document.querySelector('#gridSize').addEventListener('change', (e) => {
@@ -23,6 +25,7 @@ class App {
     Grid.removeGrid(canvas);
     Grid.makeGrid(canvas, size);
     this.draw = new Draw(this.canvas);
+    this.gridLabel.textContent = `${this.setting.getSize()} x ${this.setting.getSize()} `;
   }
 }
 export default App;
